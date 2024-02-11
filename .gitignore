@@ -1,0 +1,5 @@
+model.pt
+**/__pycache__
+env/
+
+*.wav
