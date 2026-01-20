@@ -1,7 +1,12 @@
 version: '3'
 
 services:
-  tts-server:
-    build: .
+  tts-ru:
+    build:
+      context: .
+      dockerfile: Dockerfile.RU
+    environment:
+      - TTS_MODEL=https://cloud.shkirya.ru/public.php/dav/files/KLSY2pa7F64tjA6/?accept=zip
+      - SPEAKER=kseniya
     ports:
       - "2800:8000"
