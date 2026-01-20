@@ -38,13 +38,16 @@ def clean_temp():
 
 app = FastAPI()
 
-@app.get("/clean")
+@app.get("/clean", status_code=200)
 async def clean():
-    clean_temp()
-    return Response({"status": "ok"}, 200)
+    try:
+        clean_temp()
+        return {"status": True}
+    except Exception as err:
+        return {"error": str(err)}
 
 
-@app.get("/tts_to_wav")
+@app.get("/tts_to_wav", status_code=200)
 async def tts(text: str = "", speaker: str = speaker, sample_rate: int = sample_rate):
     try:
         if text == "":
@@ -58,4 +61,4 @@ async def tts(text: str = "", speaker: str = speaker, sample_rate: int = sample_
         
         return FileResponse(audio_path, media_type="audio/wav")
     except Exception as err:
-        return Response({"error": str(err)}, 500)
+        return {"error": str(err)}
