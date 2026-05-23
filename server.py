@@ -1,5 +1,4 @@
 import os
-import asyncio
 import torch
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, Response

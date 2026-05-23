@@ -1,8 +1,8 @@
-FROM python:3.8.5
+FROM python:3.14.5
 
 WORKDIR /app
 
-ENV TTS_MODEL=https://models.silero.ai/models/tts/ru/v4_ru.pt
+ENV TTS_MODEL=https://models.silero.ai/models/tts/ru/v5_ru.pt
 
 COPY server.py server.py
 COPY requirements.txt requirements.txt
